@@ -112,8 +112,8 @@ onUnmounted(() => {
 
 <template>
     
-    <div class="h-full overflow-y-auto pt-16 px-2 flex flex-col" v-if="foroId">
-        <h2 class="text-3xl font-extrabold text-blue-900 text-center" >{{ foroNombre.titulo }}</h2>
+    <div class="h-full overflow-y-auto pt-16 px-2 bg-gray-100 min-h-screen flex flex-col" v-if="foroId">
+        <h2 class="text-3xl font-extrabold  text-blue-900 text-center" >{{ foroNombre.titulo }}</h2>
         <div v-for="mensaje in mensajes" :key="mensaje.id"
             :class="mensaje.user_id === usuario?.id ? 'mensaje-usuario' : 'mensaje-otro'"
             class="mensaje p-2 rounded-lg mb-4 max-w-3/4 flex items-end justify-between">

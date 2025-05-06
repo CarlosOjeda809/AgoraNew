@@ -114,7 +114,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-    <div class="h-full overflow-y-auto py-20 px-2 flex flex-col" v-if="manifId">
+    <div class="h-full overflow-y-auto bg-gray-100 min-h-screen py-20 px-2 flex flex-col" v-if="manifId">
         <h2 class="text-3xl font-extrabold text-blue-900 text-center " >{{ manifNombre.titulo }}</h2>
         <div v-for="mensaje in mensajes" :key="mensaje.id"
             :class="mensaje.user_id === usuario?.id ? 'mensaje-usuario' : 'mensaje-otro'"
@@ -134,7 +134,7 @@ onUnmounted(() => {
     </div>
 
     <div class="flex p-5 fixed bottom-1 w-full ">
-        <input v-model="nuevoMensaje" @click="enviarMensaje"
+        <input v-model="nuevoMensaje" @click="enviarMensaje" @keydown.enter="enviarMensaje"
             class="shadow appearance-none border rounded-full w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             placeholder="Escribe tu mensaje..." />
         <button

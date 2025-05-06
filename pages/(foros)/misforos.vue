@@ -1,6 +1,6 @@
 <script setup>
 const client = useSupabaseClient();
-const user = useSupabaseUser(); // Obtenemos el usuario actual
+const user = useSupabaseUser();
 const foros = ref([]);
 const router = useRouter();
 const loading = ref(true);
@@ -116,17 +116,19 @@ const deleteForo = async (foroId) => {
      
       <div v-else class="space-y-4 bg-gray-200">
         <div v-for="foro in foros" :key="foro.id" 
-             class="bg-gray-100 rounded-md shadow-md p-4 hover:shadow-lg transition duration-300">
-          <h3 class="font-bold text-black text-lg">{{ foro.titulo }}</h3>
-          <p class="text-sm text-gray-600 mt-2">{{ foro.descripcion }}</p>
-          <div class="flex justify-between items-center mt-3">
-            
-            <div class="flex space-x-2">
+             class="bg-gray-100  rounded-md shadow-md p-4 hover:shadow-lg transition duration-300">
+             <div class="flex flex-wrap justify-between">
+              <h3 class="font-bold text-black text-lg">{{ foro.titulo }}</h3>
               <Icon @click="deleteForo(foro.id)" 
                    name="material-symbols-light:delete-rounded"
                    class="text-red-500 hover:text-red-700 cursor-pointer hover:-translate-y-0.5 text-2xl"
                    title="Eliminar foro"></Icon>
             </div>
+          
+          <p class="text-sm text-gray-600 mt-2">{{ foro.descripcion }}</p>
+          <div class="flex justify-between items-center mt-3">
+            
+            
           </div>
         </div>
       </div>
