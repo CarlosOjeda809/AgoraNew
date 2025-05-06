@@ -30,7 +30,7 @@
   <div class="flex-grow flex flex-col items-center">
     <div class="container mx-auto px-4 py-6 sm:py-8 z-10">
       <img @click="navigateTo('/')" src="/img/logoagora.png"
-        class="mx-auto w-7/8 sm:w-1/2 md:w-1/3 cursor-pointer transition-shadow duration-300 hover:rounded-md hover:shadow-lg z-10"
+        class="mx-auto w-7/8 sm:w-1/2 md:w-1/3 cursor-pointer transition duration-500 hover:scale-103 z-10"
         alt="Logo Agora" />
       <div class="mt-10 space-y-8 flex flex-col items-center justify-center">
         <div @click="navigateTo('/noticias')"

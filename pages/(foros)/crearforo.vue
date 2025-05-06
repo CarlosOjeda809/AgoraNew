@@ -47,7 +47,7 @@ const goBack = () => {
     <div class="bg-gray-200 min-h-screen flex justify-center">
         <div class="w-full max-w-4xl p-6 sm:p-10 md:p-16 lg:p-20 xl:p-32">
             <img @click="navigateTo('/')" src="/img/logoagora.png"
-                class="mx-auto w-7/8 cursor-pointer transition-shadow duration-300 hover:rounded-md hover:shadow-lg z-10"
+                class="mx-auto w-7/8 cursor-pointer transition duration-500 hover:scale-103 z-10"
                 alt="Logo Agora" />
             <div class="flex flex-col items-center">
                 <div class="w-full max-w-2xl space-y-8 rounded-lg">

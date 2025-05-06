@@ -73,11 +73,11 @@ const navigateTo = (path) => {
       </div>
       <nav class="mt-6">
         <button @click="logout"
-          class="block py-3 px-6 shadow border-b-0.5 cursor-pointer border-gray-200 text-gray-800 hover:bg-gray-100 transition duration-200 w-full text-left focus:outline-none">
+          class="block py-3 px-6 shadow border-b-0.5 cursor-pointer border-gray-200 text-gray-800 hover:bg-gray-100 transition-colors duration-500 w-full text-left focus:outline-none">
           Cerrar Sesión
         </button>
         <button @click="navigateTo('/profile')"
-          class="block py-3 px-6 shadow border-b-0.5 cursor-pointer border-gray-200 text-gray-800 hover:bg-gray-100 transition duration-200 w-full text-left focus:outline-none">
+          class="block py-3 px-6 shadow border-b-0.5 cursor-pointer border-gray-200 text-gray-800 hover:bg-gray-100 transition-colors duration-500 w-full text-left focus:outline-none">
           Mi Perfil
         </button>
       </nav>

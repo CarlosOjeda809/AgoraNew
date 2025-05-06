@@ -71,8 +71,8 @@ watch(guardianData, (newData) => {
 
 <template>
   <div class="bg-gray-100 min-h-screen flex flex-col items-center p-6 sm:p-8 lg:p-10 space-y-8 relative overflow-hidden">
-    <img @click="navigateTo('/')" src="/img/logoagora.png" class="mx-auto w-4/4 sm:w-1/2 md:w-1/3 mt-8 cursor-pointer duration-300 hover:shadow-md rounded-lg z-10" alt="Logo Agora" />
-    <h1 class="text-xl text-gray-500 sm:text-2xl font-bold text-center -mt-5 p-3 bg-white/70 backdrop-blur-sm rounded-lg shadow-sm z-10">
+    <img @click="navigateTo('/')" src="/img/logoagora.png" class="mx-auto w-4/4 sm:w-1/2 md:w-1/3 mt-8 cursor-pointer transition duration-500 hover:scale-103 z-10" alt="Logo Agora" />
+    <h1 class="text-xl text-gray-700 sm:text-4xl font-serif font-bold text-center -mt-5 p-3 bg-white/70 backdrop-blur-sm rounded-lg shadow-sm z-10">
       NOTICIAS DE ACTUALIDAD
     </h1>
     <div class="w-full max-w-xl space-y-4 sm:space-y-6 z-10">

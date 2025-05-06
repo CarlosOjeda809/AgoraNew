@@ -11,7 +11,7 @@
 
     <div class="max-w-lg mx-auto overflow-hidden"> 
       <img @click="navigateTo('/')" src="/img/logoagora.png"
-        class="mx-auto w-8/8 sm:w-5/5 md:w-3/3 cursor-pointer transition-shadow duration-300 hover:rounded-md hover:shadow-lg z-10"
+        class="mx-auto w-8/8 sm:w-5/5 md:w-3/3 cursor-pointer transition duration-500 hover:scale-103 g z-10"
         alt="Logo Agora" />
 
       <div class="grid gap-6 space-y-4 p-8"> 

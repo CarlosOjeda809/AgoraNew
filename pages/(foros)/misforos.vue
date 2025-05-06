@@ -81,7 +81,7 @@ const deleteForo = async (foroId) => {
   <div>
     <div class="p-8 bg-gray-200 min-h-screen mt-16">
       <img @click="navigateTo('/')" src="/img/logoagora.png"
-        class="mx-auto w-7/8 sm:w-1/2 md:w-1/3 cursor-pointer transition-shadow duration-300 mt-5 hover:rounded-md hover:shadow-lg z-10"
+        class="mx-auto w-7/8 sm:w-1/2 md:w-1/3 cursor-pointer transition duration-500 mt-5 hover:scale-103 z-10"
         alt="Logo Agora" />
 
       <div class="mb-4 border-b-2 pb-2 text-black mt-3 flex justify-between items-center">
@@ -109,7 +109,7 @@ const deleteForo = async (foroId) => {
       </div>
       <div v-else class="space-y-4 bg-gray-200">
         <div v-for="foro in foros" :key="foro.id"
-          class="bg-gray-100  rounded-md shadow-md p-4 hover:shadow-lg transition duration-300">
+          class="bg-gray-100 hover:-translate-y-0.5 rounded-md shadow-md p-4 hover:shadow-lg transition duration-300">
           <div class="flex flex-wrap justify-between">
             <h3 class="font-bold text-black text-lg">{{ foro.titulo }}</h3>
             <Icon @click="deleteForo(foro.id)" name="material-symbols-light:delete-rounded"

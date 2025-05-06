@@ -59,10 +59,10 @@ const formatDate = (dateString) => {
 </script>
 
 <template>
-    <div class="bg-gray-100 py-10 min-h-screen flex flex-col items-center  ">
+    <div class="bg-gray-100 py-10 min-h-screen flex flex-col items-center">
 
         <div class="mb-8">
-            <img src="/img/logoagora.png" alt="Logo Ágora" class="w-90 h-auto" />
+            <img @click="navigateTo('/')" src="/img/logoagora.png" alt="Logo Ágora" class="w-48 h-auto md:w-96 hover:scale-103 cursor-pointer transition duration-500" />
         </div>
         <div v-if="isLoading" class="text-blue-900 text-lg font-semibold text-center">
             Cargando detalles...
@@ -71,25 +71,25 @@ const formatDate = (dateString) => {
             {{ errorMsg }}
         </div>
 
-        <div v-else-if="manifestacion" class="max-w-md w-full px-4">
-            <div class="mb-4">
+        <div v-else-if="manifestacion" class="max-w-md md:max-w-2xl w-full px-4 md:px-8">
+            <div class="mb-6 md:mb-8">
                 <img :src="manifestacion.imagen" :alt="manifestacion.titulo" class="w-full h-auto rounded-md" />
             </div>
-            <h1 class="text-3xl font-bold text-blue-900 mb-6 text-center">{{ manifestacion.titulo }}</h1>
-            <div class="mb-4">
-                <strong class="text-blue-900 block mb-1">Descripción:</strong>
-                <p class="text-gray-700">{{ manifestacion.descripcion }}</p>
+            <h1 class="text-2xl md:text-4xl font-bold text-blue-900 mb-4 md:mb-6 text-center">{{ manifestacion.titulo }}</h1>
+            <div class="mb-4 md:mb-6">
+                <strong class="text-blue-900 block mb-1 md:text-lg">Descripción:</strong>
+                <p class="text-gray-700 md:text-lg">{{ manifestacion.descripcion }}</p>
             </div>
-            <div class="mb-4">
-                <strong class="text-blue-900 block mb-1">Fecha de Inicio:</strong>
-                <p class="text-gray-700">{{ formatDate(manifestacion.fecha) }}</p>
+            <div class="mb-4 md:mb-6">
+                <strong class="text-blue-900 block mb-1 md:text-lg">Fecha de Inicio:</strong>
+                <p class="text-gray-700 md:text-lg">{{ formatDate(manifestacion.fecha) }}</p>
             </div>
-            <div class="mb-4">
-                <strong class="text-blue-900 block mb-1">Ubicación:</strong>
-                <p class="text-gray-700">{{ manifestacion.ubicacion }}</p>
+            <div class="mb-6 md:mb-8">
+                <strong class="text-blue-900 block mb-1 md:text-lg">Ubicación:</strong>
+                <p class="text-gray-700 md:text-lg">{{ manifestacion.ubicacion }}</p>
             </div>
             <div class="border-t border-gray-200 pt-4 text-center">
-                <p class="text-sm text-gray-500">ID: {{ manifestacion.id }}</p>
+                <p class="text-sm text-gray-500 md:text-base">ID: {{ manifestacion.id }}</p>
             </div>
         </div>
         <div v-else class="text-gray-500 text-center">

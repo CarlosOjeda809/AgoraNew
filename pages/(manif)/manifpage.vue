@@ -87,7 +87,7 @@ function goToChat(manifId) {
         <div class="flex flex-col  items-center pt-6 sm:pt-10">
             <div class="mb-10">
                 <img @click="navigateTo('/')" src="/img/logoagora.png"
-                    class="mx-auto w-4/4 sm:w-1/2 md:w-1/3 cursor-pointer transition-shadow duration-300 hover:shadow-lg"
+                    class="mx-auto w-4/4 sm:w-1/2 md:w-1/3 cursor-pointer transition duration-500 hover:scale-103"
                     alt="Logo Agora" />
             </div>
             <h1 class="text-3xl font-bold text-gray-800 mb-8">Próximas Manifestaciones</h1>

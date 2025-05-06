@@ -130,7 +130,7 @@ onMounted(() => {
                             class="bg-blue-50/50 p-4 rounded-lg border border-blue-100 hover:shadow-sm transition duration-200">
                             <h3 class="text-lg font-medium text-blue-900 mb-1">{{ foro.titulo }}</h3>
                             <p class="text-sm text-gray-800">
-                                Descripcion: {{ foro.descripcion }}
+                               {{ foro.descripcion }}
                             </p>
                         </div>
                     </div>
@@ -148,9 +148,7 @@ onMounted(() => {
                         <div v-for="manif in userManifestaciones" :key="manif.id"
                             class="bg-blue-50/50 p-4 rounded-lg border border-blue-100 hover:shadow-sm transition duration-200">
                             <h3 class="text-lg font-medium text-blue-900 mb-1">{{ manif.titulo }}</h3>
-                            <p class="text-sm text-gray-500 mb-1">
-                                Fecha: {{ formatDate(manif.fecha) }}
-                            </p>
+                            
                             <p v-if="manif.ubicacion" class="text-sm text-gray-600">
                                 📍 {{ manif.ubicacion }}
                             </p>

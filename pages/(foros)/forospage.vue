@@ -12,7 +12,7 @@ const goBack = () => {
     <div class="bg-gray-200 h-screen p-5">
 
         <img @click="navigateTo('/')" src="/img/logoagora.png "
-            class="mx-auto w-7/8 mt-5 sm:w-1/2 md:w-1/3  cursor-pointer hover:rounded-md hover:shadow-lg z-10"
+            class="mx-auto w-7/8 mt-5 sm:w-1/2 md:w-1/3 cursor-pointer transition duration-500 hover:scale-103 z-10"
             alt="Logo Agora" />
         <div class="mt-10  space-y-8">
             <div  @click="navigateTo('/forosext')" class="bg-[#171e57] hover:bg-[#060636]

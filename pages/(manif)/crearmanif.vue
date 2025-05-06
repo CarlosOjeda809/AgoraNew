@@ -71,8 +71,8 @@ const crearManifestacion = async () => {
     <div class="bg-gray-200 min-h-screen p-5">
         <div class="flex flex-col items-center pt-6 sm:pt-10">
             <div class="mb-10 ">
-                <img src="/img/logoagora.png"
-                    class="mx-auto w-4/4 sm:w-1/2 md:w-1/3 transition-shadow duration-300 hover:shadow-lg"
+                <img @click="navigateTo('/')" src="/img/logoagora.png"
+                    class="mx-auto w-4/4 sm:w-1/2 md:w-1/3 cursor-pointer transition duration-500 hover:scale-103"
                     alt="Logo Agora" />
             </div>
 

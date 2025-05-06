@@ -52,7 +52,7 @@ onMounted(() => {
         <div class="max-w-7xl mx-auto">
             <div class="mb-8 text-center">
                 <img @click="navigateTo('/')" src="/img/logoagora.png"
-                     class="mx-auto w-2/4 sm:w-2/5 md:w-3/6 cursor-pointer transition-shadow duration-300 hover:rounded-md hover:shadow-lg z-10"
+                     class="mx-auto w-2/4 sm:w-2/5 md:w-3/6 cursor-pointer transition duration-500 hover:scale-103 z-10"
                      alt="Logo Agora" />
                 <h2 class="mt-4 text-3xl font-extrabold text-gray-600 tracking-tight sm:text-4xl">
                     Explora los Foros de la Comunidad
