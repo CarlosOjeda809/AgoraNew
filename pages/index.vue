@@ -26,7 +26,8 @@
 </script>
 
 <template>
-  <div class="bg-gray-100 min-h-screen flex flex-col items-center">
+  <div class="min-h-screen flex flex-col bg-gray-100 overflow-hidden">
+  <div class="flex-grow flex flex-col items-center">
     <div class="container mx-auto px-4 py-6 sm:py-8 z-10">
       <img @click="navigateTo('/')" src="/img/logoagora.png"
         class="mx-auto w-7/8 sm:w-1/2 md:w-1/3 cursor-pointer transition-shadow duration-300 hover:rounded-md hover:shadow-lg z-10"
@@ -57,4 +58,5 @@
       </div>
     </div>
   </div>
+</div>
 </template>

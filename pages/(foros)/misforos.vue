@@ -11,7 +11,7 @@ const recibirForos = async () => {
   error.value = null;
   
   try {
-    // Verificamos que exista un usuario autenticado
+    
     if (!user.value || !user.value.id) {
       console.error('No hay usuario autenticado');
       error.value = 'Debes iniciar sesión para ver tus foros';
@@ -19,7 +19,6 @@ const recibirForos = async () => {
       return;
     }
     
-    // Filtramos los foros por el user_id del usuario actual
     const { data, error: fetchError } = await client
       .from('foros')
       .select('*')
@@ -121,9 +120,7 @@ const deleteForo = async (foroId) => {
           <h3 class="font-bold text-black text-lg">{{ foro.titulo }}</h3>
           <p class="text-sm text-gray-600 mt-2">{{ foro.descripcion }}</p>
           <div class="flex justify-between items-center mt-3">
-            <span class="text-xs text-gray-500">
-              Creado: {{ new Date(foro.created_at || Date.now()).toLocaleDateString() }}
-            </span>
+            
             <div class="flex space-x-2">
               <Icon @click="deleteForo(foro.id)" 
                    name="material-symbols-light:delete-rounded"
