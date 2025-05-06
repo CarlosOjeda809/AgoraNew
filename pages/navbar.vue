@@ -10,6 +10,10 @@ function goBack() {
   router.back(-1)
 };
 
+function goToIndex() {
+  router.push('/');
+};
+
 const openMenu = () => {
   isMenuOpen.value = true;
 };
@@ -29,6 +33,11 @@ const logout = async () => {
     window.location.href = '/login';
   }
 };
+
+const navigateTo = (path) => {
+  router.push(path);
+  closeMenu();
+};
 </script>
 
 <template>
@@ -37,8 +46,14 @@ const logout = async () => {
       class="bg-white hover:-translate-y-0.5 cursor-pointer border-1 border-gray-300/50 text-gray-700 font-bold py-2 px-4 rounded-full shadow-sm transition-colors duration-200">
       <Icon name="material-symbols-light:arrow-back" class="text-2xl align-middle" />
     </button>
-    <button @click="openMenu" class="focus:outline-none bg-gray-300 p-1 cursor-pointer hover:-translate-y-0.5 rounded-full">
-      <Icon name="basil:menu-outline" class="text-4xl text-gray-900 hover:text-gray-900 transition duration-300 align-middle" />
+
+    <button @click="goToIndex"
+      class="bg-white hover:-translate-y-0.5 cursor-pointer text-white font-bold py-2 px-4 rounded-full shadow-sm transition-colors duration-200">
+      <Icon name="ic:round-home" class="text-2xl text-black align-middle" />
+    </button>
+
+    <button @click="openMenu" class="focus:outline-none bg-white p-1 cursor-pointer hover:-translate-y-0.5 rounded-full">
+      <Icon name="basil:menu-outline" class="text-4xl text-blacktransition duration-300 align-middle" />
     </button>
   </div>
 
@@ -59,11 +74,11 @@ const logout = async () => {
       <nav class="mt-6">
         <button @click="logout"
           class="block py-3 px-6 shadow border-b-0.5 cursor-pointer border-gray-200 text-gray-800 hover:bg-gray-100 transition duration-200 w-full text-left focus:outline-none">
-         Cerrar Sesión
+          Cerrar Sesión
         </button>
         <button @click="navigateTo('/profile')"
           class="block py-3 px-6 shadow border-b-0.5 cursor-pointer border-gray-200 text-gray-800 hover:bg-gray-100 transition duration-200 w-full text-left focus:outline-none">
-         Mi Perfil
+          Mi Perfil
         </button>
       </nav>
     </div>

@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div class="bg-gray-100 min-h-screen p-8">
+  <div class="bg-gray-100 min-h-screen p-4">
     <button @click="goBack"
       class="fixed top-4 left-4 bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold py-2 px-4 rounded-full shadow-md transition-colors duration-200">
       <Icon class="align-middle text-3xl font-bold" name="material-symbols-light:arrow-back"></Icon>
