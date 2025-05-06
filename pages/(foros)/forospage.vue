@@ -14,8 +14,8 @@ const goBack = () => {
         <img @click="navigateTo('/')" src="/img/logoagora.png "
             class="mx-auto w-7/8 mt-5 sm:w-1/2 md:w-1/3  cursor-pointer hover:rounded-md hover:shadow-lg z-10"
             alt="Logo Agora" />
-        <div @click="navigateTo('/forosext')" class="mt-10  space-y-8">
-            <div class="bg-[#171e57] hover:bg-[#060636]
+        <div class="mt-10  space-y-8">
+            <div  @click="navigateTo('/forosext')" class="bg-[#171e57] hover:bg-[#060636]
              w-full rounded-lg shadow-md cursor-pointer transition duration-300 hover:-translate-y-0.5 p-5 mt-5 flex  flex-col items-center justify-center 
             font-serif text-center font-bold text-4xl sm:text-3xl text-white">
                 FOROS EXT. MANIFEST. Y HUELGAS

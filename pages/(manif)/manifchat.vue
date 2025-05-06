@@ -124,7 +124,7 @@ onUnmounted(() => {
                 <p>{{ mensaje.texto }}</p>
             </div>
             <button v-if="mensaje.user_id === usuario?.id" @click="eliminarMensaje(mensaje.id)"
-                class="ml-2 text-red-500 hover:text-red-700 text-sm focus:outline-none">
+                class="ml-2 text-red-500 hover:text-red-800 cursor-pointer text-sm focus:outline-none">
                 <Icon name="material-symbols:delete-forever-rounded"></Icon>
             </button>
         </div>
