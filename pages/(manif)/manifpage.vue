@@ -96,7 +96,6 @@ function goToChat(manifId) {
                 <Icon name="material-symbols:add-circle-outline-rounded" class="text-xl block" /> <span>Crear
                     Manifestación</span>
             </button>
-
             <div v-if="isLoading" class="text-center text-gray-600 mt-10">
                 <p>Cargando manifestaciones...</p>
                 <svg class="animate-spin h-8 w-8 text-blue-700 mx-auto mt-4" xmlns="http://www.w3.org/2000/svg"
@@ -107,7 +106,6 @@ function goToChat(manifId) {
                     </path>
                 </svg>
             </div>
-
             <div v-else-if="errorMsg" class="text-center text-red-500 bg-red-100 p-3 rounded-md mt-4 max-w-md mx-auto">
                 <p>{{ errorMsg }}</p>
             </div>

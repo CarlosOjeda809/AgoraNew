@@ -30,7 +30,7 @@ const crearManifestacion = async () => {
     errorMsg.value = '';
 
     try {
-        // Es importante incluir el user_id del usuario actual
+
         const { data, error } = await client
             .from('manifestaciones')
             .insert([

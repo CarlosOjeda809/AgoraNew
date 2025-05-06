@@ -1,6 +1,3 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
 
-h1 {
-    font-family: serif;
-}

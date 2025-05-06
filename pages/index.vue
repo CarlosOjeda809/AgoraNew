@@ -34,20 +34,19 @@
         alt="Logo Agora" />
       <div class="mt-10 space-y-8 flex flex-col items-center justify-center">
         <div @click="navigateTo('/noticias')"
-          class="relative w-full max-w-md cursor-pointer rounded-xl transition shadow-md overflow-hidden duration-300 hover:shadow-lg">
+          class="relative w-full max-w-md hover:-translate-y-1 cursor-pointer rounded-xl transition shadow-md overflow-hidden duration-300 hover:shadow-lg">
           <img src="/img/noticias.png" class="h-48 sm:h-64 w-full object-cover"
             alt="Logo noticias" />
           <div
-            class="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-black/10 hover:bg-black/20 transition duration-300">
+            class="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-black/10 hover:bg-black/20 transition duration-500">
             <h1 class="text-2xl sm:text-3xl text-white font-bold text-center p-3 rounded-md shadow-sm bg-gray-900/20">
               NOTICIAS
             </h1>
           </div>
         </div>
-
         <div @click="navigateTo('/forospage')"
-          class="relative w-full max-w-md cursor-pointer rounded-xl transition shadow-md overflow-hidden  duration-300 hover:shadow-lg">
-          <img src="/img/forosindex.png" class="h-48 sm:h-64 w-full object-cover" alt="Logo foros" />
+          class="relative w-full max-w-md cursor-pointer hover:-translate-y-1 rounded-xl transition shadow-md overflow-hidden  duration-300 hover:shadow-lg">
+          <img src="/img/forosindex.png" class="h-48 sm:h-64 -translate-y-3 w-full object-cover" alt="Logo foros" />
           <div
             class="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-black/10 hover:bg-black/20 transition duration-300">
             <h1 class="text-2xl sm:text-3xl text-white font-bold text-center p-3 rounded-md shadow-sm bg-gray-900/20">

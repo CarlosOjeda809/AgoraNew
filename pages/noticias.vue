@@ -103,7 +103,7 @@ watch(guardianData, (newData) => {
       <p v-else class="text-center text-gray-500 py-4">No se encontraron noticias.</p>
 
        <div class="text-center text-xs text-gray-500 pt-4">
-        News data provided by <a href="https://www.theguardian.com/" target="_blank" rel="noopener noreferrer" class="underline hover:text-gray-700">The Guardian</a>.
+       Noticias de <a href="https://www.theguardian.com/" target="_blank" class="underline hover:text-gray-700">The Guardian</a>.
       </div>
       
       </div>

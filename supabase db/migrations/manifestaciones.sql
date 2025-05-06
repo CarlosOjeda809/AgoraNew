@@ -1,5 +1,5 @@
 CREATE TABLE manifestaciones (
-    id INT8 PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     titulo TEXT NOT NULL,
     descripcion TEXT,
     fecha DATE,

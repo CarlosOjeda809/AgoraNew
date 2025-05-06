@@ -43,17 +43,17 @@ const navigateTo = (path) => {
 <template>
   <div class="bg-gray-100 py-4 px-4 flex justify-between items-center shadow-md fixed top-0 left-0 right-0 z-30">
     <button @click="goBack" :data-route="backRoute"
-      class="bg-white hover:-translate-y-0.5 cursor-pointer border-1 border-gray-300/50 text-gray-700 font-bold py-2 px-4 rounded-full shadow-sm transition-colors duration-200">
+      class="bg-white hover:-translate-y-0.5 cursor-pointer border-1 border-gray-300/50 text-gray-700 font-bold py-2 px-4 rounded-full shadow-sm transition duration-400">
       <Icon name="material-symbols-light:arrow-back" class="text-2xl align-middle" />
     </button>
 
     <button @click="goToIndex"
-      class="bg-white hover:-translate-y-0.5 cursor-pointer text-white font-bold py-2 px-4 rounded-full shadow-sm transition-colors duration-200">
+      class="bg-white hover:-translate-y-0.5 cursor-pointer text-white font-bold py-2 px-4 rounded-full shadow-sm transition duration-400">
       <Icon name="ic:round-home" class="text-2xl text-black align-middle" />
     </button>
 
-    <button @click="openMenu" class="focus:outline-none bg-white p-1 cursor-pointer hover:-translate-y-0.5 rounded-full">
-      <Icon name="basil:menu-outline" class="text-4xl text-blacktransition duration-300 align-middle" />
+    <button @click="openMenu" class="focus:outline-none bg-white p-1 cursor-pointer duration-400 hover:-translate-y-0.5 rounded-full">
+      <Icon name="basil:menu-outline" class="text-4xl text-black transition  align-middle" />
     </button>
   </div>
 
