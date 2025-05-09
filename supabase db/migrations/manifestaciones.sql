@@ -6,7 +6,7 @@ CREATE TABLE manifestaciones (
     imagen TEXT,
     ubicacion TEXT,
     user_id UUID NOT NULL,
-    CONSTRAINT fk_user
+    CONSTRAINT fk_manif_user
         FOREIGN KEY (user_id)
         REFERENCES public.users(id)
 );
