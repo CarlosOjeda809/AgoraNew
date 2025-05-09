@@ -19,6 +19,9 @@ onMounted(async () => {
 </script>
 <template>
   <div class="bg-gray-200 min-h-screen flex flex-col items-center">
+    <div class="p-4 w-full sm:w-auto">
+      <img src="/img/logoagora.png" class="mx-auto w-4/4 sm:w-1/3 md:w-1/4 h-auto mt-6 sm:mt-10" alt="Logo Agora" />
+    </div>
     <div class="flex-grow flex justify-center px-4 sm:px-0">
       <form @submit.prevent="signup(nombreData, emailData, contraseñaData, newContraseñaData)"
         class="w-full max-w-xl p-6 sm:p-8 space-y-4 rounded-lg mb-16 sm:mb-60">
