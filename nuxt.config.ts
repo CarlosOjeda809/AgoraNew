@@ -3,7 +3,8 @@ export default defineNuxtConfig({
     public: {
       supabaseUrl: process.env.SUPABASE_URL,
       supabaseAnonKey: process.env.SUPABASE_KEY,
-      guardianApiKey: process.env.GUARDIAN_API_KEY 
+      guardianApiKey: process.env.GUARDIAN_API_KEY,
+      BASE_URL: process.env.BASE_URL 
     }
   },
   supabase: {
@@ -11,7 +12,7 @@ export default defineNuxtConfig({
       login: '/login',
       callback: '/confirm',
       include: undefined,
-      exclude: ['/register'], 
+      exclude: ['/register', '/callback'], 
       saveRedirectToCookie: false
     }
   },

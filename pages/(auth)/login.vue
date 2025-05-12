@@ -1,9 +1,11 @@
 <script setup>
 const client = useSupabaseClient()
 const router = useRouter()
+const config = useRuntimeConfig();
 const emailData = ref('')
 const contraseñaData = ref('')
 const errorMsg = ref('')
+const isLoading = ref(false)
 
 const loginDatos = async () => {
   if (!emailData.value || !contraseñaData.value) {
@@ -23,8 +25,34 @@ const loginDatos = async () => {
   }
 
   errorMsg.value = ''
-  router.push('/') 
+ navigateTo('/')
 }
+
+const loginConGoogle = async () => {
+    isLoading.value = true;
+    try {
+        const { error } = await client.auth.signInWithOAuth({
+            provider: 'google',
+             options: {
+                redirectTo: config.public.BASE_URL + '/callback'
+            }
+            
+        });
+
+        if (error) {
+            console.error('Error al iniciar sesión con Google:', error);
+            errorMsg.value = error.message;
+            return false;
+        }
+
+        errorMsg.value = ''
+    } catch (e) {
+        errorMsg.value = 'Error inesperado. Inténtalo de nuevo.' + e
+    } finally {
+        isLoading.value = false;
+    }
+}
+
 </script>
 
 <template>
@@ -42,6 +70,10 @@ const loginDatos = async () => {
           <button type="submit"
             class="p-3 bg-gray-600 text-white font-semibold rounded-md hover:bg-gray-800 w-full transition duration-300 cursor-pointer">
             INGRESAR
+          </button>
+          <button type="button" @click="loginConGoogle"
+            class="p-3 bg-white text-gray-600 font-semibold rounded-md hover:bg-gray-100 w-full transition duration-300 cursor-pointer">
+            LOGIN CON GOOGLE
           </button>
           <div class="text-center">
             <p class="text-gray-600">¿No tienes cuenta?</p>
