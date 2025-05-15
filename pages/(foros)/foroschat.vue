@@ -2,7 +2,7 @@
 const route = useRoute();
 const router = useRouter();
 const foroId = ref(route.query.foroId);
-const foroNombre = ref(''); 
+const foroNombre = ref('');
 const mensajes = ref([]);
 const nuevoMensaje = ref('');
 const usuario = ref(null);
@@ -16,7 +16,7 @@ const obtenerNombreForo = async () => {
     }
 
     const { data, error } = await client
-        .from('foros') 
+        .from('foros')
         .select('titulo')
         .eq('id', foroId.value)
         .single();
@@ -28,12 +28,10 @@ const obtenerNombreForo = async () => {
     }
 
     if (data) {
-        foroNombre.value = data.nombre;
+        foroNombre.value = data.titulo;
     } else {
         foroNombre.value = 'Foro no encontrado';
     }
-
-    foroNombre.value = data
 };
 
 const obtenerMensajes = async () => {
@@ -93,7 +91,7 @@ onMounted(async () => {
     const { data: { user } } = await client.auth.getUser();
     usuario.value = user;
 
-    await obtenerNombreForo(); 
+    await obtenerNombreForo();
     await obtenerMensajes();
 
     if (foroId.value) {
@@ -111,37 +109,36 @@ onUnmounted(() => {
 </script>
 
 <template>
-    
-    <div class="h-full overflow-y-auto pt-16 px-2 bg-gray-100 min-h-screen flex flex-col" v-if="foroId">
-        <h2 class="text-3xl font-extrabold  text-blue-900 text-center" >{{ foroNombre.titulo }}</h2>
-        <div v-for="mensaje in mensajes" :key="mensaje.id"
-            :class="mensaje.user_id === usuario?.id ? 'mensaje-usuario' : 'mensaje-otro'"
-            class="mensaje p-2 rounded-lg mb-4 max-w-3/4 flex items-end justify-between">
-            <div>
-                <p class="text-xs text-gray-200 mb-2" v-if="mensaje.users">{{ mensaje.users.nombre }}</p>
-                <p>{{ mensaje.texto }}</p>
-            </div>
-            <button v-if="mensaje.user_id === usuario?.id" @click="eliminarMensaje(mensaje.id)"
-                class="ml-2 text-red-500 hover:text-red-800 cursor-pointer text-sm focus:outline-none">
-                <Icon name="material-symbols:delete-forever-rounded"></Icon>
+    <main class="h-full overflow-y-auto pt-16 px-2 bg-gray-100 min-h-screen flex flex-col" v-if="foroId">
+        <header class="text-center mb-4">
+            <h2 class="text-3xl font-extrabold text-blue-900">{{ foroNombre.titulo }}</h2>
+        </header>
+        <section class="flex-grow">
+            <article v-for="mensaje in mensajes" :key="mensaje.id"
+                :class="mensaje.user_id === usuario?.id ? 'mensaje-usuario' : 'mensaje-otro'"
+                class="mensaje p-2 rounded-lg mb-4 max-w-3/4 flex items-end justify-between">
+                <div>
+                    <p class="text-xs text-gray-200 mb-2" v-if="mensaje.users">{{ mensaje.users.nombre }}</p>
+                    <p>{{ mensaje.texto }}</p>
+                </div>
+                <button v-if="mensaje.user_id === usuario?.id" @click="eliminarMensaje(mensaje.id)"
+                    class="ml-2 text-red-500 hover:text-red-800 cursor-pointer text-sm focus:outline-none">
+                    <Icon name="material-symbols:delete-forever-rounded"></Icon>
+                </button>
+            </article>
+        </section>
+        <footer class="flex p-5 fixed bottom-0 w-full bg-gray-100">
+            <input v-model="nuevoMensaje" @keyup.enter="enviarMensaje"
+                class="shadow appearance-none border rounded-full w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                placeholder="Escribe tu mensaje..." />
+            <button
+                class="bg-blue-900 hover:-translate-y-0.5 cursor-pointer text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline ml-2"
+                @click="enviarMensaje">
+                Enviar
             </button>
-        </div>
-    </div>
-    <div v-else class="text-center py-6">
-        <p class="text-gray-500">Selecciona un foro para ver el chat.</p>
-    </div>
-
-    <div class="flex p-5 fixed bottom-0 w-full bg-gray-100" v-if="foroId">
-        <input v-model="nuevoMensaje" @keyup.enter="enviarMensaje"
-            class="shadow appearance-none border rounded-full w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            placeholder="Escribe tu mensaje..." />
-        <button
-            class="bg-blue-900 hover:-translate-y-0.5 cursor-pointer text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline ml-2"
-            @click="enviarMensaje">
-            Enviar
-        </button>
-    </div>
-    <div class="fixed top-0 left-0 w-full bg-gray-100 text-gray-500 p-4 z-10 shadow-md" v-else>
+        </footer>
+    </main>
+    <div v-else class="fixed top-0 left-0 w-full bg-gray-100 text-gray-500 p-4 z-10 shadow-md">
         <h2 class="text-lg font-semibold">Selecciona un foro</h2>
     </div>
 </template>

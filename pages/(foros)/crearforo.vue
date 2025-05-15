@@ -1,6 +1,4 @@
 <script setup>
-
-
 const client = useSupabaseClient();
 const router = useRouter();
 const foros = ref([]);
@@ -44,12 +42,14 @@ const goBack = () => {
 </script>
 
 <template>
-    <div class="bg-gray-200 min-h-screen flex justify-center">
-        <div class="w-full max-w-4xl p-6 sm:p-10 md:p-16 lg:p-20 xl:p-32">
-            <img @click="navigateTo('/')" src="/img/logoagora.png"
-                class="mx-auto w-7/8 cursor-pointer transition duration-500 hover:scale-103 z-10"
-                alt="Logo Agora" />
-            <div class="flex flex-col items-center">
+    <main class="bg-gray-200 min-h-screen flex justify-center">
+        <article class="w-full max-w-4xl p-6 sm:p-10 md:p-16 lg:p-20 xl:p-32">
+            <header>
+                <img @click="navigateTo('/')" src="/img/logoagora.png"
+                    class="mx-auto w-7/8 cursor-pointer transition duration-500 hover:scale-103 z-10"
+                    alt="Logo Agora" />
+            </header>
+            <section class="flex flex-col items-center mt-8">
                 <div class="w-full max-w-2xl space-y-8 rounded-lg">
                     <div>
                         <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
@@ -59,7 +59,7 @@ const goBack = () => {
                     <form @submit.prevent="crearForo" class="mt-8 space-y-6">
                         <input type="hidden" name="remember" value="true">
                         <div class="rounded-md -space-y-px">
-                            <p for="titulo" class="sr-only">Título del foro</p>
+                            <label for="titulo" class="sr-only">Título del foro</label>
                             <input v-model="titulo" id="titulo" name="titulo" type="text" required
                                 class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm "
                                 placeholder="Título del foro">
@@ -86,7 +86,7 @@ const goBack = () => {
                         <p v-if="errorMsg" class="text-red-500">{{ errorMsg }}</p>
                     </form>
                 </div>
-            </div>
-        </div>
-    </div>
+            </section>
+        </article>
+    </main>
 </template>

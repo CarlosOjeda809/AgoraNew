@@ -14,7 +14,6 @@ const errorMsg = ref('');
 const formatDate = (dateString) => {
     if (!dateString) return 'Fecha no disponible';
     try {
-        e
         const date = new Date(dateString);
         if (isNaN(date)) return 'Fecha inválida';
         return date.toLocaleDateString('es-ES', {
@@ -35,7 +34,6 @@ const fetchProfileData = async () => {
     if (!user.value) {
         errorMsg.value = 'Usuario no autenticado.';
         isLoading.value = false;
-
         return;
     }
 
@@ -51,10 +49,8 @@ const fetchProfileData = async () => {
         if (profileResult.error) throw new Error(`Error al obtener perfil: ${profileResult.error.message}`);
         userProfile.value = profileResult.data;
 
-
         if (forosResult.error) throw new Error(`Error al obtener foros: ${forosResult.error.message}`);
         userForos.value = forosResult.data || [];
-
 
         if (manifResult.error) throw new Error(`Error al obtener manifestaciones: ${manifResult.error.message}`);
         userManifestaciones.value = manifResult.data || [];
@@ -74,18 +70,16 @@ onMounted(() => {
 </script>
 
 <template>
-    
-    <div class="bg-gradient-to-br from-gray-50 to-blue-50 min-h-screen py-10 px-4 sm:px-6 lg:px-8">
-        <img @click="navigateTo('/')" src="/img/logoagora.png"
-          class="mx-auto w-10/10 sm:w-   /3 md:w-1/4 cursor-pointer transition-shadow duration-300 hover:rounded-md hover:shadow-lg z-10"
-          alt="Logo Agora" />
-        <div class="max-w-4xl mx-auto">
+    <main class="bg-gradient-to-br from-gray-50 to-blue-50 min-h-screen py-10 px-4 sm:px-6 lg:px-8">
+        <header class="max-w-4xl mx-auto text-center">
+            <img @click="navigateTo('/')" src="/img/logoagora.png"
+                class="mx-auto w-2/3 sm:w-1/3 md:w-1/4 cursor-pointer transition-shadow duration-300 hover:rounded-md hover:shadow-lg z-10"
+                alt="Logo Agora" />
+            <h1 class="text-4xl font-bold text-gray-900 mt-5">Mi Perfil</h1>
+            <p class="text-lg text-gray-500 mt-1">Tu información personal y contenido creado.</p>
+        </header>
 
-            <div class="text-center mb-10">
-                <h1 class="text-4xl font-bold text-gray-900 mt-5">Mi Perfil</h1>
-                <p class="text-lg text-gray-500 mt-1">Tu información personal y contenido creado.</p>
-            </div>
-
+        <section class="max-w-4xl mx-auto mt-8">
             <div v-if="isLoading" class="text-center py-20">
                 <svg class="animate-spin h-10 w-10 text-blue-900 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none"
                     viewBox="0 0 24 24">
@@ -102,8 +96,8 @@ onMounted(() => {
                 {{ errorMsg }}
             </div>
 
-            <div v-else>
-                <div class="bg-white rounded-xl shadow-lg p-6 md:p-8 mb-8 border-t-4 border-blue-900">
+            <div v-else class="space-y-8">
+                <article class="bg-white rounded-xl shadow-lg p-6 md:p-8 border-t-4 border-blue-900">
                     <h2 class="text-2xl font-semibold text-gray-800 mb-5 flex items-center">
                         <Icon name="material-symbols:person-outline-rounded" class="w-7 h-7 mr-2 text-blue-900" />
                         Información Personal
@@ -118,9 +112,9 @@ onMounted(() => {
                             <span class="text-gray-700">{{ userEmail }}</span>
                         </div>
                     </div>
-                </div>
+                </article>
 
-                <div class="bg-white rounded-xl shadow-lg p-6 md:p-8 mb-8 border-t-4 border-blue-900">
+                <article class="bg-white rounded-xl shadow-lg p-6 md:p-8 border-t-4 border-blue-900">
                     <h2 class="text-2xl font-semibold text-gray-800 mb-5 flex items-center">
                         <Icon name="material-symbols:forum-outline-rounded" class="w-7 h-7 mr-2 text-blue-900" />
                         Mis Foros Creados
@@ -130,16 +124,16 @@ onMounted(() => {
                             class="bg-blue-50/50 p-4 rounded-lg border border-blue-100 hover:shadow-sm transition duration-200">
                             <h3 class="text-lg font-medium text-blue-900 mb-1">{{ foro.titulo }}</h3>
                             <p class="text-sm text-gray-800">
-                               {{ foro.descripcion }}
+                                {{ foro.descripcion }}
                             </p>
                         </div>
                     </div>
                     <div v-else class="text-center text-gray-800 py-4">
                         <p>Aún no has creado ningún foro.</p>
                     </div>
-                </div>
+                </article>
 
-                <div class="bg-white rounded-xl shadow-lg p-6 md:p-8 border-t-4 border-blue-900">
+                <article class="bg-white rounded-xl shadow-lg p-6 md:p-8 border-t-4 border-blue-900">
                     <h2 class="text-2xl font-semibold text-gray-800 mb-5 flex items-center">
                         <Icon name="material-symbols:campaign-outline-rounded" class="w-7 h-7 mr-2 text-blue-900" />
                         Mis Manifestaciones Creadas
@@ -148,7 +142,6 @@ onMounted(() => {
                         <div v-for="manif in userManifestaciones" :key="manif.id"
                             class="bg-blue-50/50 p-4 rounded-lg border border-blue-100 hover:shadow-sm transition duration-200">
                             <h3 class="text-lg font-medium text-blue-900 mb-1">{{ manif.titulo }}</h3>
-                            
                             <p v-if="manif.ubicacion" class="text-sm text-gray-600">
                                 📍 {{ manif.ubicacion }}
                             </p>
@@ -157,9 +150,8 @@ onMounted(() => {
                     <div v-else class="text-center text-gray-800 py-4">
                         <p>Aún no has creado ninguna manifestación.</p>
                     </div>
-                </div>
-
+                </article>
             </div>
-        </div>
-    </div>
+        </section>
+    </main>
 </template>

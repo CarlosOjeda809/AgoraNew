@@ -68,17 +68,17 @@ const crearManifestacion = async () => {
 </script>
 
 <template>
-    <div class="bg-gray-200 min-h-screen p-5">
-        <div class="flex flex-col items-center pt-6 sm:pt-10">
-            <div class="mb-10 ">
+    <main class="bg-gray-200 min-h-screen p-5">
+        <section class="flex flex-col items-center pt-6 sm:pt-10">
+            <header class="mb-10 ">
                 <img @click="navigateTo('/')" src="/img/logoagora.png"
                     class="mx-auto w-4/4 sm:w-1/2 md:w-1/3 cursor-pointer transition duration-500 hover:scale-103"
                     alt="Logo Agora" />
-            </div>
+            </header>
 
             <h1 class="text-3xl font-bold text-gray-800 mb-8">Crear Nueva Manifestación</h1>
 
-            <div class="w-full max-w-md bg-white rounded-xl shadow-lg p-6">
+            <article class="w-full max-w-md bg-white rounded-xl shadow-lg p-6">
 
                 <div v-if="errorMsg" class="mb-4 p-3 bg-red-100 text-red-700 rounded-md">
                     {{ errorMsg }}
@@ -138,7 +138,7 @@ const crearManifestacion = async () => {
                         </button>
                     </div>
                 </form>
-            </div>
-        </div>
-    </div>
+            </article>
+        </section>
+    </main>
 </template>
