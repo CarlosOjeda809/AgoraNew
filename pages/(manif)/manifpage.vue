@@ -88,18 +88,18 @@ function goToChat(manifId) {
     <main class="bg-gray-200 min-h-screen p-5 relative">
         <section class="flex flex-col items-center pt-6 sm:pt-10">
             <header class="mb-10">
-                <img @click="navigateTo('/')" src="/img/logoagora.png"
+                <NuxtLink to="/" src="/img/logoagora.png"
                     class="mx-auto w-4/4 sm:w-1/2 md:w-1/3 cursor-pointer transition duration-500 hover:scale-103"
                     alt="Logo Agora" />
             </header>
 
             <h1 class="text-3xl font-bold text-gray-800 mb-8">Próximas Manifestaciones</h1>
 
-            <button v-if="user" @click="navigateTo('/crearmanif')"
+            <NuxtLink v-if="user" to="/crearmanif"
                 class="bg-blue-900 text-white font-bold py-2 px-4 rounded-lg mb-7 shadow-md -mt-2 cursor-pointer hover:bg-gray-900 transition-colors duration-200 flex items-center space-x-2">
                 <Icon name="material-symbols:add-circle-outline-rounded" class="text-xl block" />
                 <span>Crear Manifestación</span>
-            </button>
+            </NuxtLink>
 
             <section v-if="isLoading" class="text-center text-gray-600 mt-10" aria-live="polite">
                 <p>Cargando manifestaciones...</p>

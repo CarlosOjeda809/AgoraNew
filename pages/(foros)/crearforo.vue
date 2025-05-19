@@ -1,4 +1,6 @@
 <script setup>
+import { NuxtLink } from '#components';
+
 const client = useSupabaseClient();
 const router = useRouter();
 const foros = ref([]);
@@ -45,7 +47,7 @@ const goBack = () => {
     <main class="bg-gray-200 min-h-screen flex justify-center">
         <article class="w-full max-w-4xl p-6 sm:p-10 md:p-16 lg:p-20 xl:p-32">
             <header>
-                <img @click="navigateTo('/')" src="/img/logoagora.png"
+                <NuxtLink to="/" src="/img/logoagora.png"
                     class="mx-auto w-7/8 cursor-pointer transition duration-500 hover:scale-103 z-10"
                     alt="Logo Agora" />
             </header>

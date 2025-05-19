@@ -4,6 +4,7 @@ const client = useSupabaseClient();
 const router = useRouter();
 const userName = ref('');
 const errorMsg = ref('');
+const user = useSupabaseUser();
 
 const navigateTo = (path) => {
     router.push(path);
@@ -29,12 +30,20 @@ const logout = async () => {
         <section class="flex-grow flex flex-col items-center">
             <div class="container mx-auto px-4 py-6 sm:py-8 z-10">
                 <header>
-                    <img @click="navigateTo('/')" src="/img/logoagora.png"
+                    <NuxtLink to="/" src="/img/logoagora.png"
                         class="mx-auto w-7/8 sm:w-1/2 md:w-1/3 cursor-pointer transition duration-500 hover:scale-103 z-10"
                         alt="Logo Agora" />
                 </header>
                 <nav class="mt-10 space-y-8 flex flex-col items-center justify-center">
-                    <article @click="navigateTo('/noticias')"
+                    <div v-if="(!user)">
+                        <h1 class="text-2xl sm:text-3xl text-gray-800 font-bold text-center p-3 rounded-md shadow-sm bg-gray-900/20">
+                            ¡Bienvenido a Ágora!
+                        </h1>
+                        <p class="text-lg text-gray-600 text-center mt-4">
+                            Inicia sesión para acceder a todas las funcionalidades.
+                        </p>
+                    </div>
+                    <NuxtLink to="/noticias"
                         class="relative w-full max-w-md hover:-translate-y-1 cursor-pointer rounded-xl transition shadow-md overflow-hidden duration-300 hover:shadow-lg">
                         <img src="/img/noticias.png" class="h-48 sm:h-64 w-full object-cover"
                             alt="Logo noticias" />
@@ -44,8 +53,8 @@ const logout = async () => {
                                 NOTICIAS
                             </h1>
                         </div>
-                    </article>
-                    <article @click="navigateTo('/forospage')"
+                    </NuxtLink>
+                    <NuxtLink to="/forospage"
                         class="relative w-full max-w-md cursor-pointer hover:-translate-y-1 rounded-xl transition shadow-md overflow-hidden  duration-300 hover:shadow-lg">
                         <img src="/img/forosindex.png" class="h-48 sm:h-64 -translate-y-3 w-full object-cover" alt="Logo foros" />
                         <div
@@ -54,7 +63,7 @@ const logout = async () => {
                                 FOROS
                             </h1>
                         </div>
-                    </article>
+                    </NuxtLink>
                 </nav>
             </div>
         </section>

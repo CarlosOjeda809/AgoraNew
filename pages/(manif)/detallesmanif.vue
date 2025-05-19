@@ -1,4 +1,6 @@
 <script setup>
+import { NuxtLink } from '#components';
+
 const client = useSupabaseClient();
 const route = useRoute();
 const manifestacion = ref(null);
@@ -61,7 +63,7 @@ const formatDate = (dateString) => {
 <template>
     <main class="bg-gray-100 py-10 min-h-screen flex flex-col items-center">
         <header class="mb-8">
-            <img @click="navigateTo('/')" src="/img/logoagora.png" alt="Logo Ágora" class="w-48 h-auto md:w-96 hover:scale-103 cursor-pointer transition duration-500" />
+            <NuxtLink to="/" src="/img/logoagora.png" alt="Logo Ágora" class="w-48 h-auto md:w-96 hover:scale-103 cursor-pointer transition duration-500" />
         </header>
         <section>
             <div v-if="isLoading" class="text-blue-900 text-lg font-semibold text-center">

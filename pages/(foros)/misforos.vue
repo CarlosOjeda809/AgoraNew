@@ -1,4 +1,6 @@
 <script setup>
+import { NuxtLink } from '#components';
+
 const client = useSupabaseClient();
 const user = useSupabaseUser();
 const foros = ref([]);
@@ -80,15 +82,15 @@ const deleteForo = async (foroId) => {
 <template>
     <main class="bg-gray-200 min-h-screen p-8 mt-16">
         <header class="mb-4 border-b-2 pb-2 text-black flex justify-between items-center">
-            <img @click="navigateTo('/')" src="/img/logoagora.png"
+            <NuxtLink to="/" src="/img/logoagora.png"
                 class="w-7/8 sm:w-1/2 md:w-1/3 cursor-pointer transition duration-500 mt-5 mx-auto hover:scale-103 z-10"
                 alt="Logo Agora" />
             <h2 class="text-xl font-semibold text-black">MIS FOROS</h2>
-            <button @click="navigateTo('/crearforo')"
+            <NuxtLink to="/crearforo"
                 class="flex items-center hover:bg-gray-300/80 hover:-translate-y-0.5 cursor-pointer bg-gray-300/50 rounded-md shadow-md p-2">
                 <Icon name="material-symbols:add-circle-outline" class="text-2xl text-black"></Icon>
                 <p class="font-bold ml-1 text-black">CREAR</p>
-            </button>
+            </NuxtLink>
         </header>
         <section>
             <div v-if="loading" class="text-center py-8">
@@ -101,10 +103,10 @@ const deleteForo = async (foroId) => {
             <div v-else-if="foros.length === 0" class="text-center py-8">
                 <Icon name="material-symbols:forum-outline" class="text-gray-400 text-6xl"></Icon>
                 <p class="mt-2 text-gray-600">No has creado ningún foro todavía</p>
-                <button @click="navigateTo('/crearforo')"
+                <NuxtLink to="/crearforo"
                     class="mt-4 bg-blue-600 hover:bg-blue-800 cursor-pointer transition-colors text-white font-bold py-2 px-4 rounded">
                     Crear mi primer foro
-                </button>
+                </NuxtLink>
             </div>
             <div v-else class="space-y-4 bg-gray-200">
                 <article v-for="foro in foros" :key="foro.id"

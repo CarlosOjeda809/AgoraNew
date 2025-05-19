@@ -29,29 +29,27 @@ const loginDatos = async () => {
 }
 
 const loginConGoogle = async () => {
-    isLoading.value = true;
-    try {
-        const { error } = await client.auth.signInWithOAuth({
-            provider: 'google',
-             options: {
-                 redirectTo: config.public.BASE_URL + '/callback'
-             }
+  isLoading.value = true;
+  try {
+    const { error } = await client.auth.signInWithOAuth({
+      provider: 'google',
+      
+    });
 
-        });
-
-        if (error) {
-            console.error('Error al iniciar sesión con Google:', error);
-            errorMsg.value = error.message;
-            return false;
-        }
-
-        errorMsg.value = ''
-    } catch (e) {
-        errorMsg.value = 'Error inesperado. Inténtalo de nuevo.' + e
-    } finally {
-        isLoading.value = false;
+    if (error) {
+      console.error('Error al iniciar sesión con Google:', error);
+      errorMsg.value = error.message;
+      return false;
     }
-}
+
+    errorMsg.value = '';
+  } catch (e) {
+    errorMsg.value = 'Error inesperado. Inténtalo de nuevo.' + e;
+  } finally {
+    isLoading.value = false;
+  }
+  router.push('/callback');
+};
 
 </script>
 
@@ -76,8 +74,8 @@ const loginConGoogle = async () => {
         </button>
         <div class="text-center">
           <p class="text-gray-600">¿No tienes cuenta?</p>
-          <a @click="navigateTo('/register')" class="text-blue-700 font-semibold cursor-pointer hover:underline">Crear
-            una</a>
+          <NuxtLink to="/register" class="text-blue-700 font-semibold cursor-pointer hover:underline">Crear
+            una</NuxtLink>
         </div>
         <p v-if="errorMsg" class="text-center text-red-500 font-semibold">{{ errorMsg }}</p>
       </form>

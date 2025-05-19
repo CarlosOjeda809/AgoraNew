@@ -72,7 +72,7 @@ onMounted(() => {
 <template>
     <main class="bg-gradient-to-br from-gray-50 to-blue-50 min-h-screen py-10 px-4 sm:px-6 lg:px-8">
         <header class="max-w-4xl mx-auto text-center">
-            <img @click="navigateTo('/')" src="/img/logoagora.png"
+            <NuxtLink to="/" src="/img/logoagora.png"
                 class="mx-auto w-2/3 sm:w-1/3 md:w-1/4 cursor-pointer transition-shadow duration-300 hover:rounded-md hover:shadow-lg z-10"
                 alt="Logo Agora" />
             <h1 class="text-4xl font-bold text-gray-900 mt-5">Mi Perfil</h1>

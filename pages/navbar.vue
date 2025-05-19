@@ -67,19 +67,19 @@ const navigateTo = (path) => {
     <div v-if="isMenuOpen"
       class="fixed top-0 right-0 h-full w-64 bg-white shadow-xl z-30">
       <div class="p-4 flex justify-end">
-        <button @click="closeMenu" class="focus:outline-none">
+        <NuxtLInk @click="closeMenu" class="focus:outline-none">
           <Icon name="heroicons:x-mark" class="text-2xl text-gray-700 hover:text-gray-900 transition duration-200" />
-        </button>
+        </NuxtLInk>
       </div>
       <nav class="mt-6">
         <button @click="logout"
           class="block py-3 px-6 shadow border-b-0.5 cursor-pointer border-gray-200 text-gray-800 hover:bg-gray-100 transition-colors duration-500 w-full text-left focus:outline-none">
           Cerrar Sesión
         </button>
-        <button @click="navigateTo('/profile')"
+        <NuxtLink to="/profile" 
           class="block py-3 px-6 shadow border-b-0.5 cursor-pointer border-gray-200 text-gray-800 hover:bg-gray-100 transition-colors duration-500 w-full text-left focus:outline-none">
           Mi Perfil
-        </button>
+        </NuxtLink>
       </nav>
     </div>
   </Transition>

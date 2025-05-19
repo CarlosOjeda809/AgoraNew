@@ -1,4 +1,6 @@
 <script setup>
+import { NuxtLink } from '#components';
+
 
 const nombreData = ref('');
 const emailData = ref('');
@@ -38,10 +40,10 @@ onMounted(async () => {
                         class="p-3 bg-gray-600 text-white font-semibold rounded-md hover:bg-gray-800 w-full transition duration-300 cursor-pointer">
                         REGISTRARSE
                     </button>
-                    <button @click="navigateTo('/login')"
+                    <NuxtLink to="/login"
                         class="p-3 bg-gray-600 text-white font-semibold rounded-md hover:bg-gray-800 w-full transition duration-300 cursor-pointer">
                         LOGIN
-                    </button>
+                    </NuxtLink>
                 </div>
                 <p v-if="errorMsg" class="text-center text-red-500 font-semibold">{{ errorMsg }}</p>
             </form>

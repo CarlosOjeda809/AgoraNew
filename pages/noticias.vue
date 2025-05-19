@@ -1,4 +1,6 @@
 <script setup>
+import { NuxtLink } from '#components'
+
 
 const config = useRuntimeConfig()
 const noticias = ref([])
@@ -72,7 +74,7 @@ watch(guardianData, (newData) => {
 <template>
     <main class="bg-gray-100 min-h-screen flex flex-col items-center p-6 sm:p-8 lg:p-10 space-y-8 relative overflow-hidden">
         <header>
-            <img @click="navigateTo('/')" src="/img/logoagora.png" class="mx-auto w-4/4 sm:w-1/2 md:w-1/3 mt-8 cursor-pointer transition duration-500 hover:scale-103 z-10" alt="Logo Agora" />
+            <NuxtLink to="/" src="/img/logoagora.png" class="mx-auto w-4/4 sm:w-1/2 md:w-1/3 mt-8 cursor-pointer transition duration-500 hover:scale-103 z-10" alt="Logo Agora" />
             <h1 class="text-xl text-gray-700 sm:text-4xl font-serif font-bold text-center -mt-5 p-3 bg-white/70 backdrop-blur-sm rounded-lg shadow-sm z-10">
                 NOTICIAS DE ACTUALIDAD
             </h1>
